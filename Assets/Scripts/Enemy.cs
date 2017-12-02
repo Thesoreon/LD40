@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
 
     public void TakeDamage(float amount)
     {
-        Destroy(Instantiate(number, gameObject.transform.position, Quaternion.identity), 1.8f);
+        Destroy(Instantiate(number, gameObject.transform.position + new Vector3(Random.Range(-0.5f, 0.5f), 1, 0), Quaternion.identity), 1.8f);
         
         Health -= amount;
 
@@ -44,6 +44,6 @@ public class Enemy : MonoBehaviour {
     {
         Destroy(gameObject);
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().AddXP(5f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().AddXP(100f);
     }
 }
