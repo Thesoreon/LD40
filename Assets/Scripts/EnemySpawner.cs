@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private void Start()
     {
-        SpawnTime = 5f;
+        SpawnTime = 4f;
         StartCoroutine(SpawnEnemy());
     }
 

@@ -44,6 +44,8 @@ public class Enemy : MonoBehaviour {
     {
         Destroy(gameObject);
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().AddXP(100f);
+        PlayerStats temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+        temp.AddXP(10f);
     }
 }

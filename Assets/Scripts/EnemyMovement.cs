@@ -25,7 +25,8 @@ public class EnemyMovement : MonoBehaviour {
         if (distance > 1.4f)
             transform.Translate(1 * Time.deltaTime, 0, 0);
         else
-            enemy.Attack(target);
+            if (enemy.AS <= 0f)
+                enemy.Attack(target);
 
         if (transform.position.x > target.position.x)
             transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);

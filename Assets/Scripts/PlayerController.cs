@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     private PlayerMovement movement;
 
+    public Animator anim;
+
 	void Start () {
         movement = GetComponent<PlayerMovement>();
 	}
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour {
             GFX.transform.rotation = new Quaternion(transform.rotation.x, 0f, transform.rotation.z, 0f);
             movement.Move(150);
         }
+
+        if(Input.GetKeyDown(KeyCode.E))
+            anim.SetBool("Show", !anim.GetBool("Show"));
 
         if (Input.GetKey(KeyCode.Space))
         {
