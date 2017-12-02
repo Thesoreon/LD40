@@ -16,6 +16,6 @@ public class PlayerController : MonoBehaviour {
             movement.Move(150);
 
         if (Input.GetKey(KeyCode.Space))
-            movement.Jump(150);
+            movement.Jump(300);
 	}
 }
