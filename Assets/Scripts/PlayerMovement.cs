@@ -29,5 +29,5 @@ public class PlayerMovement : MonoBehaviour {
         if (collision.collider.tag == "Ground")
             grounded = true;
     }
-
+    
 }

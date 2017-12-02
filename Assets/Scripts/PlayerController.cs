@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour {
 
+    public GameObject GFX;
+
     private PlayerMovement movement;
 
 	void Start () {
@@ -11,11 +13,19 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 
         if (Input.GetKey(KeyCode.A))
+        {
+            GFX.transform.rotation = new Quaternion(transform.rotation.x, 180f, transform.rotation.z, 0f);
             movement.Move(-150);
-        else if (Input.GetKey(KeyCode.D))
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            GFX.transform.rotation = new Quaternion(transform.rotation.x, 0f, transform.rotation.z, 0f);
             movement.Move(150);
+        }
 
         if (Input.GetKey(KeyCode.Space))
-            movement.Jump(300);
+        {
+           movement.Jump(300);
+        }
 	}
 }
