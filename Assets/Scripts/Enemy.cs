@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
     public void Attack(Transform target)
     {
         PlayerStats temp = target.GetComponent<PlayerStats>();
-
+            
         temp.TakeDamage(10);
 
         AS = AttackSpeed;

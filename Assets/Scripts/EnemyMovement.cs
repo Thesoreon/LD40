@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
 
@@ -8,9 +9,13 @@ public class EnemyMovement : MonoBehaviour {
 
     private Enemy enemy;
 
+    public Animator anim;
+
 	void Start () {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = GetComponent<Enemy>();
+
+        anim.SetBool("Attack", true);
 	}
 	
 	void FixedUpdate () {
@@ -20,8 +25,7 @@ public class EnemyMovement : MonoBehaviour {
         if (distance > 1.4f)
             transform.Translate(1 * Time.deltaTime, 0, 0);
         else
-            if (enemy.AS <= 0f)
-                enemy.Attack(target);
+            enemy.Attack(target);
 
         if (transform.position.x > target.position.x)
             transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
