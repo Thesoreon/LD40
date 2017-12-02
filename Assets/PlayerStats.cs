@@ -1,16 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
+    
+    private float MaxHealth = 100;
+    public float Health;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Image bar;
+
+    private void Start()
+    {
+        Health = MaxHealth;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        Health -= amount;
+        UpdateBar();
+
+        if (Health <= 0f)
+            Die();
+    }
+
+    private void UpdateBar()
+    {
+        bar.fillAmount = Health / MaxHealth;
+    }
+
+    private void Die()
+    {
+        Debug.Log("You died");
+    }
+
 }

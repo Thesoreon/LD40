@@ -6,8 +6,11 @@ public class EnemyMovement : MonoBehaviour {
 
     private float distance;
 
+    private Enemy enemy;
+
 	void Start () {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        enemy = GetComponent<Enemy>();
 	}
 	
 	void FixedUpdate () {
@@ -17,8 +20,8 @@ public class EnemyMovement : MonoBehaviour {
         if (distance > 1.4f)
             transform.Translate(1 * Time.deltaTime, 0, 0);
         else
-            Debug.Log("Attacking");
-
+            if (enemy.AS <= 0f)
+                enemy.Attack(target);
 
         if (transform.position.x > target.position.x)
             transform.eulerAngles = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
