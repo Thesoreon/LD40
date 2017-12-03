@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour {
 
     public Animator anim;
 
-    public float range = 2.75f;
+    public float range = 2.8f;
 
     private void Update()
     {

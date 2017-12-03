@@ -30,11 +30,6 @@ public class PlayerStats : MonoBehaviour {
 
     public Animator anim;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J)) Die();
-    }
-
     private void Start()
     {
         Health = MaxHealth;

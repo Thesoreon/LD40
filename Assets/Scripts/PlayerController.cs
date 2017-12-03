@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) GetComponent<PlayerStats>().Heal(20f);
+        if (Input.GetKeyDown(KeyCode.W)) GetComponent<PlayerStats>().Heal(40f);
         if (Input.GetKeyDown(KeyCode.S)) StartCoroutine(GetComponent<PlayerStats>().DrinkImmortal());
         if (Input.GetKeyDown(KeyCode.E)) anim[0].SetBool("Show", !anim[0].GetBool("Show"));
     }
