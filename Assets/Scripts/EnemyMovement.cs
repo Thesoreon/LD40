@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+        if (target == null) return;
 
         distance = Vector3.Distance(target.position, transform.position);
 

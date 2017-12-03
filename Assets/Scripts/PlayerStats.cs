@@ -156,6 +156,8 @@ XP: {3}/{4}", Kills, System.Math.Round(armor, 2), Level, currentXP, System.Math.
     private void Die()
     {
         GameObject.Find("GameMaster").GetComponent<GameOver>().EndGame();
+
+        Destroy(gameObject);
     }
 
 }
