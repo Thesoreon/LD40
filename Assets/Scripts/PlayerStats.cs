@@ -55,6 +55,16 @@ public class PlayerStats : MonoBehaviour {
             LevelUp();
     }
 
+    public void Heal(float amount)
+    {
+        if (Health + amount > 100)
+            Health = 100;
+        else
+            Health += amount;
+
+        UpdateBar();
+    }
+
     private void DecreaseProtection()
     {
         if (Kills <= 100)
@@ -73,7 +83,7 @@ public class PlayerStats : MonoBehaviour {
         UpdateXpBar();
 
         if(Level <= 5)
-            GameObject.Find("GameMaster").GetComponent<EnemySpawner>().SpawnTime -= 0.5f;
+            GameObject.Find("GameMaster").GetComponent<EnemySpawner>().SpawnTime -= 0.60f;
 
         StartCoroutine(AnimateLevel());
     }
@@ -90,7 +100,7 @@ public class PlayerStats : MonoBehaviour {
         stats.text = string.Format(@"Level: {2}
 Kills: {0}
 Armor: {1}
-XP: {3}/{4}", Kills, System.Math.Round(armor, 2), Level, currentXP, MaxXP);
+XP: {3}/{4}", Kills, System.Math.Round(armor, 2), Level, currentXP, System.Math.Round(MaxXP, 0));
     }
 
     private IEnumerator AnimateLevel()

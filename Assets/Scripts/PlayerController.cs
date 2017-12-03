@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour {
             anim.SetBool("Show", !anim.GetBool("Show"));
 
         if (Input.GetKey(KeyCode.Space))
-        {
            movement.Jump(300);
-        }
 	}
 }

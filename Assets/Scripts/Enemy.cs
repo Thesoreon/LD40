@@ -8,11 +8,17 @@ public class Enemy : MonoBehaviour {
     private float AttackSpeed = 1.5f;
     public float AS;
 
+    public float Damage;
+
+    public float Experiences;
+
     public GameObject number;
 
 	void Start () {
         Health = MaxHealth;
         AS = AttackSpeed;
+        Experiences = 10f;
+        Damage = 10f;
 	}
 
     private void Update()
@@ -35,7 +41,7 @@ public class Enemy : MonoBehaviour {
     {
         PlayerStats temp = target.GetComponent<PlayerStats>();
             
-        temp.TakeDamage(10);
+        temp.TakeDamage(Damage);
 
         AS = AttackSpeed;
     }
@@ -46,6 +52,6 @@ public class Enemy : MonoBehaviour {
 
         PlayerStats temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 
-        temp.AddXP(10f);
+        temp.AddXP(Experiences + temp.Kills);
     }
 }
