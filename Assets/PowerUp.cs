@@ -2,18 +2,20 @@
 
 public class PowerUp : MonoBehaviour {
 
-    public float amount;
-
-    private void Start()
-    {
-        amount = 10f;
-    }
+    public bool Immortal = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerStats>().Heal(amount);
+            PlayerStats temp = collision.gameObject.GetComponent<PlayerStats>();
+
+            if (!Immortal)
+                temp.HealPotion++;
+            else
+                temp.ImmortalPotion++;
+
+            temp.UpdateCount();
 
             Destroy(gameObject);
         }

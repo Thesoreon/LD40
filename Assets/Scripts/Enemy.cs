@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
 
     public float Experiences;
 
+    public GameObject deathEffect;
     public GameObject number;
 
 	void Start () {
@@ -48,6 +49,8 @@ public class Enemy : MonoBehaviour {
 
     private void Die()
     {
+        Destroy(Instantiate(deathEffect, transform.position, Quaternion.identity), 3f);
+
         Destroy(gameObject);
 
         PlayerStats temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();

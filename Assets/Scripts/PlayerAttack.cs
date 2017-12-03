@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour {
             foreach (GameObject item in enemies)
             {
                 if (Vector3.Distance(item.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < range)
-                    item.GetComponent<Enemy>().TakeDamage(10);
+                    item.GetComponent<Enemy>().TakeDamage(10f);
             }
         }
     }

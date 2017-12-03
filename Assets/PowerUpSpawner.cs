@@ -6,6 +6,7 @@ public class PowerUpSpawner : MonoBehaviour {
     public Transform[] spawnPoints;
 
     public GameObject powerUp;
+    public GameObject immortalPowerUp;
 
     public float despawnTime;
     public float spawnTime;
@@ -20,7 +21,16 @@ public class PowerUpSpawner : MonoBehaviour {
 
     private IEnumerator Spawn()
     {
-        Destroy(Instantiate(powerUp, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity), despawnTime);
+        switch(Random.Range(0, 10))
+        {
+            case 0:
+                Destroy(Instantiate(immortalPowerUp, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity), despawnTime);
+                break;
+            default:
+                Destroy(Instantiate(powerUp, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity), despawnTime);
+                break;
+        }
+
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(Spawn());
     }

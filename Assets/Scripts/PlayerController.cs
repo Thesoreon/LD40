@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-
         if (Input.GetKey(KeyCode.A))
         {
             GFX.transform.rotation = new Quaternion(transform.rotation.x, 180f, transform.rotation.z, 0f);
@@ -25,10 +24,14 @@ public class PlayerController : MonoBehaviour {
             movement.Move(150);
         }
 
-        if(Input.GetKeyDown(KeyCode.E))
-            anim.SetBool("Show", !anim.GetBool("Show"));
-
         if (Input.GetKey(KeyCode.Space))
            movement.Jump(300);
 	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W)) GetComponent<PlayerStats>().Heal(20f);
+        if (Input.GetKeyDown(KeyCode.S)) StartCoroutine(GetComponent<PlayerStats>().DrinkImmortal());
+        if (Input.GetKeyDown(KeyCode.E)) anim.SetBool("Show", !anim.GetBool("Show"));
+    }
 }
